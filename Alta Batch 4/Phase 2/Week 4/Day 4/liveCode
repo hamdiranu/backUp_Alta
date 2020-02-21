@@ -1,0 +1,194 @@
+
+============= Input Data ===============
+
+1. Products
+    db.products.insert([
+        {_id: 1, namaProduct: "Rak Piring", productTypeID: 1, supplier: 3, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {_id: 2, namaProduct: "Sendok Makan", productTypeID: 1, supplier: 3, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {_id: 3, namaProduct: "Closet", productTypeID: 2, supplier: 1, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {_id: 4, namaProduct: "Shower", productTypeID: 2, supplier: 1, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {_id: 5, namaProduct: "Lemari Gantung", productTypeID: 2, supplier: 1, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {_id: 6, namaProduct: "Televisi", productTypeID: 3, supplier: 4, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {_id: 7, namaProduct: "Mesin Cuci", productTypeID: 3, supplier: 4, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {_id: 8, namaProduct: "Dispenser", productTypeID: 3, supplier: 4, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {_id: 11, namaProduct: "Baju Tidur", productTypeID: 12, supplier: 3, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {_id: 12, namaProduct: "Celana Jeans", productTypeID: 12, supplier: 3, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}}
+        ])
+    
+    db.products.find().pretty()
+
+
+2. Transactions Details
+    db.transactionDetails.insert([
+        {transactionID:1, productID:2, status:1, qty:1, price:200000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:1, productID:3, status:1, qty:1, price:100000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:1, productID:4, status:1, qty:1, price:200000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:1, productID:5, status:1, qty:3, price:201000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:2, productID:2, status:1, qty:1, price:200000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:2, productID:7, status:1, qty:1, price:1200000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:2, productID:8, status:1, qty:1, price:2300000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:3, productID:1, status:1, qty:1, price:205000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:3, productID:2, status:1, qty:1, price:200000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:3, productID:6, status:1, qty:1, price:1200000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:4, productID:3, status:1, qty:1, price:500000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:4, productID:5, status:1, qty:1, price:500000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:4, productID:8, status:1, qty:1, price:2300000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:5, productID:2, status:1, qty:2, price:20000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:6, productID:1, status:1, qty:1, price:30000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:7, productID:4, status:1, qty:1, price:30000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:8, productID:12, status:1, qty:5, price:130000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:9, productID:12, status:1, qty:1, price:30000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}},
+        {transactionID:10, productID:1, status:1, qty:4, price:330000, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}}
+        ])
+
+    db.transactionDetails.find().pretty()
+
+3. Transactions
+    db.transactions.insert([
+        {_id: 1, userID: 1, paymentMethod: 1, status: 1, totalQTY: 6, totalPrice: 701000, createdAt: {"$date":"2018-10-01T17:23:13.000Z"}, updatedAt: {"$date":"2018-10-02T17:20:55.000Z"}},
+        {_id: 2, userID: 1, paymentMethod: 2, status: 1, totalQTY: 2, totalPrice: 330000, createdAt: {"$date":"2018-10-01T17:26:13.000Z"}, updatedAt: {"$date":"2018-10-02T17:26:55.000Z"}},
+        {_id: 3, userID: 1, paymentMethod: 3, status: 1, totalQTY: 2, totalPrice: 6000000, createdAt: {"$date":"2018-10-01T17:26:13.000Z"}, updatedAt: {"$date":"2018-10-02T17:26:55.000Z"}},
+        {_id: 4, userID: 2, paymentMethod: 1, status: 1, totalQTY: 2, totalPrice: 202000, createdAt: {"$date":"2018-10-01T17:26:13.000Z"}, updatedAt: {"$date":"2018-10-02T17:26:55.000Z"}},
+        {_id: 5, userID: 2, paymentMethod: 1, status: 1, totalQTY: 3, totalPrice: 100000, createdAt: {"$date":"2018-10-01T17:26:13.000Z"}, updatedAt: {"$date":"2018-10-02T17:26:55.000Z"}},
+        {_id: 6, userID: 2, paymentMethod: 3, status: 1, totalQTY: 2, totalPrice: 100000, createdAt: {"$date":"2018-10-01T17:26:13.000Z"}, updatedAt: {"$date":"2018-10-02T17:26:55.000Z"}},
+        {_id: 7, userID: 3, paymentMethod: 2, status: 1, totalQTY: 1, totalPrice: 100000, createdAt: {"$date":"2018-10-01T17:26:13.000Z"}, updatedAt: {"$date":"2018-10-02T17:26:55.000Z"}},
+        {_id: 8, userID: 3, paymentMethod: 2, status: 1, totalQTY: 5, totalPrice: 1200000, createdAt: {"$date":"2018-10-01T17:26:13.000Z"}, updatedAt: {"$date":"2018-10-02T17:26:55.000Z"}},
+        {_id: 9, userID: 4, paymentMethod: 3, status: 1, totalQTY: 5, totalPrice: 4200000, createdAt: {"$date":"2018-10-01T17:28:13.000Z"}, updatedAt: {"$date":"2018-10-02T17:28:55.000Z"}},
+        {_id: 10, userID: 4, paymentMethod: 2, status: 1, totalQTY: 1, totalPrice: 200000, createdAt: {"$date":"2018-10-01T17:28:13.000Z"}, updatedAt: {"$date":"2018-10-02T17:28:55.000Z"}}
+        ])
+    
+    db.transactions.find().pretty()
+
+4. Users
+    db.users.insert([
+        {"_id":1.0,"nama":"Andhika","status":1.0,"gender":"M","tglLahir":{"$date":"1982-01-01T00:00:00.000Z"},"createdAt":ISODate("2018-05-01T16:33:46.000Z"),"updatedAt":{"$date":"2018-10-01T16:33:46.000Z"}},
+        {"_id":2.0,"nama":"Boni W","status":1.0,"gender":"M","tglLahir":{"$date":"1982-02-11T00:00:00.000Z"},"createdAt":ISODate("2018-10-01T17:13:03.000Z"),"updatedAt":{"$date":"2018-10-01T17:13:03.000Z"}},
+        {"_id":3.0,"nama":"Cahyo Budi","status":1.0,"gender":"M","tglLahir":{"$date":"1982-02-11T00:00:00.000Z"},"createdAt":ISODate("2018-10-01T17:13:03.000Z"),"updatedAt":{"$date":"2018-10-01T17:13:03.000Z"}},
+        {"_id":4.0,"nama":"Detty R","status":1.0,"gender":"F","tglLahir":{"$date":"1986-12-31T00:00:00.000Z"},"createdAt":ISODate("2018-10-01T17:13:03.000Z"),"updatedAt":{"$date":"2018-10-01T17:13:03.000Z"}},
+        {"_id":5.0,"nama":"Fanny","status":1.0,"gender":"F","tglLahir":{"$date":"1981-04-21T00:00:00.000Z"},"createdAt":ISODate("2018-10-01T17:13:03.000Z"),"updatedAt":{"$date":"2018-10-01T17:13:03.000Z"}},
+        {"_id":6.0,"nama":"Eddy Prio","status":1.0,"gender":"M","tglLahir":{"$date":"1986-02-11T00:00:00.000Z"},"createdAt":ISODate("2018-10-01T17:13:03.000Z"),"updatedAt":{"$date":"2018-10-01T17:13:03.000Z"}}
+        ])
+    
+    db.users.find().pretty()
+
+============= Live Code ===============
+
+1. Tampilkan data users yang diinput bulan Okt 2018
+
+    db.users.aggregate([
+        { $project: {
+            _id:1,
+            nama:1,
+            status:1,
+            gender:1,
+            createdAt:1
+        }},
+        { $match: { createdAt : {$gte:new ISODate("2018-09-14T23:59:59Z"),$lte:new ISODate("2018-11-15T23:59:59Z")} }}
+    ])
+
+2. Tampilkan transaction ID, product ID, dan qty dari transaction detail collection,
+    nama product dari products collection, dan nama user dari users collection
+    untuk product type selain 1,2, dan 3
+
+    db.transactionDetails.aggregate([
+        { $lookup : {
+            from : "transactions",
+            localField: "transactionID",
+            foreignField : "_id",
+            as : "transaction"
+        }},
+        { $unwind : "$transaction"},
+        { $lookup : {
+            from : "products",
+            localField: "productID",
+            foreignField : "_id",
+            as : "product"
+        }},
+        { $unwind : "$product"},
+        { $lookup : {
+            from : "users",
+            localField: "transaction.userID",
+            foreignField : "_id",
+            as : "user"
+        }},
+        { $unwind : "$user"},
+        { $project: {
+            _id:0,
+            transactionID:1,
+            productID:1,
+            qty:1,
+            products :"$product.namaProduct",
+            productTypeID: "$product.productTypeID",
+            user:"$user.nama"
+        }},
+        { $match: { productTypeID : 12 }}
+    ])
+
+3. Tampilkan user yang jumlah transaksinya lebih besar dari 2 dan jumlah total qty lebih besar dari 5
+
+    db.transactions.aggregate([
+        { $group: {
+            "_id":"$userID",
+            "totalTRX": {$sum : 1},
+            "totalQTY": {$sum : "$totalQTY"}
+        }},
+        { $match: {$or: [{ totalTRX : {$gt:2}},{ totalQTY : {$gt:6}}]} },
+        { $lookup : {
+            from : "users",
+            localField: "_id",
+            foreignField : "_id",
+            as : "user"
+        }},
+        { $unwind : "$user"},
+        { $project: {
+            _id:0,
+            nama:"$user.nama",
+            totalTRX:1,
+            totalQTY:1
+        }}
+    ])
+
+4. Tampilkan nama user, jumlah transaksinya, nama product dan total quantity pada transaction detail collection,
+    dengan kondisinya : hanya untuk nama produk yang mengandung huruf p. urutkan hasilnya berdasarkan total quantity
+    terbanyak terlebih dahulu
+
+    db.transactionDetails.aggregate([
+        { $lookup : {
+            from : "transactions",
+            localField: "transactionID",
+            foreignField : "_id",
+            as : "transaction"
+        }},
+        { $unwind : "$transaction"},
+        { $lookup : {
+            from : "products",
+            localField: "productID",
+            foreignField : "_id",
+            as : "product"
+        }},
+        { $unwind : "$product"},
+        { $lookup : {
+            from : "users",
+            localField: "transaction.userID",
+            foreignField : "_id",
+            as : "user"
+        }},
+        { $unwind : "$user"},
+        { $project: {
+            _id:0,
+            transactionID:1,
+            productID:1,
+            qty:1,
+            products :"$product.namaProduct",
+            productTypeID: "$product.productTypeID",
+            user:"$user.nama"
+        }},
+        { $match: {$or: [{ products : {$regex: /P/, $options:'m'}},{ products : {$regex: /p/}}]  } },
+        { $project: {
+            _id:0,
+            qty:1,
+            products :1,
+            user:1
+        }},
+        {$sort: {qty:-1}}
+    ])

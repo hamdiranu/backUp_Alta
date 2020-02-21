@@ -1,0 +1,218 @@
+
+1. Create 
+
+    a. Insert 5 supplier pada collection supplier
+
+        db.createCollection("supplier")
+
+        db.supplier.find().pretty()
+
+        db.supplier.insert([
+            {_id:1,name:"Telkomsel",createdAt:ISODate()},
+            {_id:2,name:"Indosat",createdAt:ISODate()},
+            {_id:3,name:"XL_Axiata",createdAt:ISODate()},
+            {_id:4,name:"Telkom",createdAt:ISODate()},
+            {_id:5,name:"Natrindo",createdAt:ISODate()}
+            ])
+
+    b. Insert 3 product type
+
+        db.createCollection("product_type")
+
+        db.product_type.find().pretty()
+
+        db.product_type.insert([
+            {_id:1,name:"pulsa",createdAt:ISODate()},
+            {_id:2,name:"paket data",createdAt:ISODate()},
+            {_id:3,name:"kartu",createdAt:ISODate()}
+            ])
+
+    c. Insert 2 product dengan produk type id = 1 dan supplier id = 3
+
+        db.createCollection("product")
+
+        db.product.find().pretty()
+
+        db.product.insert([
+            {_id:1,product_type_id:1, supplier_id:3, code:"XL1", price:11000, name:"Pulsa Xl 10.000", status:1,createdAt:ISODate()},
+            {_id:2,product_type_id:1, supplier_id:3, code:"XL2", price:51000, name:"Pulsa Xl 51.000", status:1,createdAt:ISODate()}
+            ])
+
+    d. Insert 3 product dengan produk type id = 2 dan supplier id = 1
+
+        db.product.insert([
+            {_id:3,product_type_id:2, supplier_id:1, code:"Tel1", price:20000, name:"Paket data telkomsel 5 GB", status:1,createdAt:ISODate()},
+            {_id:4,product_type_id:2, supplier_id:1, code:"Tel2", price:75000, name:"Paket data telkomsel 17 GB", status:1,createdAt:ISODate()},
+            {_id:5,product_type_id:2, supplier_id:1, code:"Tel3", price:100000, name:"Paket data telkomsel 25 GB", status:1,createdAt:ISODate()}
+            ])
+
+    e. Insert 3 product dengan produk type id = 3 dan operator id = 4
+
+        db.product.insert([
+            {_id:6,product_type_id:3, supplier_id:4, code:"Telkom1", price:5000, name:"Kartu perdana flexi", status:1,createdAt:ISODate()},
+            {_id:7,product_type_id:3, supplier_id:4, code:"Telkom2", price:55000, name:"Kartu perdana flexi + 15 GB", status:1,createdAt:ISODate()},
+            {_id:8,product_type_id:3, supplier_id:4, code:"Telkom3", price:110000, name:"Kartu perdana flexi + 30 GB", status:1,createdAt:ISODate()}
+            ])
+
+    f. Insert product description pada setiap produk
+
+        db.createCollection("product_description")
+
+        db.product_description.find().pretty()
+
+        db.product_description.insert([
+            {_id:1,description:"Produk pulsa kartu XL sebesar 10.000",createdAt:ISODate()},
+            {_id:2,description:"Produk pulsa kartu XL sebesar 51.000",createdAt:ISODate()},
+            {_id:3,description:"Produk paket data Telkomsel 5 GB",createdAt:ISODate()},
+            {_id:4,description:"Produk paket data Telkomsel 17 GB",createdAt:ISODate()},
+            {_id:5,description:"Produk paket data Telkomsel 25 GB",createdAt:ISODate()},
+            {_id:6,description:"Produk kartu perdana flexi",createdAt:ISODate()},
+            {_id:7,description:"Produk kartu perdana flexi + paket data 15 GB",createdAt:ISODate()},
+            {_id:8,description:"Produk kartu perdana flexi + paket data 20 GB",createdAt:ISODate()}
+            ])
+    
+    g. Insert 3 payment methods
+
+        db.createCollection("payment_methods")
+
+        db.payment_methods.find().pretty()
+
+        db.payment_methods.insert([
+            {_id:1,name:"gopay",status:1,createdAt:ISODate()},
+            {_id:2,name:"OVO",status:1,createdAt:ISODate()},
+            {_id:3,name:"Transfer Bank",status:1,createdAt:ISODate()} 
+            ])
+
+    h. Insert 5 user pada tabel user
+
+        db.createCollection("user")
+
+        db.user.find().pretty()
+
+        db.user.insert([
+            {_id:1,name:"hamdi",status:1,dob:"2019-12-02", gender:"M",createdAt:ISODate()},
+            {_id:2,name:"handaru",status:1,dob:"1996-04-09", gender:"M",createdAt:ISODate()},
+            {_id:3,name:"hana",status:1,dob:"2000-01-25", gender:"F",createdAt:ISODate()},
+            {_id:4,name:"hufa",status:1,dob:"1890-02-08", gender:"F",createdAt:ISODate()},
+            {_id:5,name:"hanzo",status:1,dob:"2014-06-10", gender:"M",createdAt:ISODate()} 
+            ])
+
+    i. Insert 3 transaksi di masing-masing user
+
+        db.createCollection("transactions")
+
+        db.transactions.find().pretty()
+
+        db.transactions.insert([
+            {_id:1,status:1,user_id:1,payment_methods_id:1, total_qty:1, total_price:10000,createdAt:ISODate()},
+            {_id:2,status:1,user_id:1,payment_methods_id:2, total_qty:1, total_price:10000,createdAt:ISODate()},
+            {_id:3,status:1,user_id:1,payment_methods_id:3, total_qty:1, total_price:10000,createdAt:ISODate()},
+            {_id:4,status:1,user_id:2,payment_methods_id:1, total_qty:1, total_price:10000,createdAt:ISODate()},
+            {_id:5,status:1,user_id:2,payment_methods_id:2, total_qty:1, total_price:10000,createdAt:ISODate()},
+            {_id:6,status:1,user_id:2,payment_methods_id:3, total_qty:1, total_price:10000,createdAt:ISODate()},
+            {_id:7,status:1,user_id:3,payment_methods_id:1, total_qty:1, total_price:10000,createdAt:ISODate()},
+            {_id:8,status:1,user_id:3,payment_methods_id:2, total_qty:1, total_price:10000,createdAt:ISODate()},
+            {_id:9,status:1,user_id:3,payment_methods_id:3, total_qty:1, total_price:10000,createdAt:ISODate()},
+            {_id:10,status:1,user_id:4,payment_methods_id:1, total_qty:1, total_price:10000,createdAt:ISODate()}, 
+            {_id:11,status:1,user_id:4,payment_methods_id:2, total_qty:1, total_price:10000,createdAt:ISODate()},
+            {_id:12,status:1,user_id:4,payment_methods_id:3, total_qty:1, total_price:10000,createdAt:ISODate()},
+            {_id:13,status:1,user_id:5,payment_methods_id:1, total_qty:1, total_price:10000,createdAt:ISODate()},
+            {_id:14,status:1,user_id:5,payment_methods_id:2, total_qty:1, total_price:10000,createdAt:ISODate()},
+            {_id:15,status:1,user_id:5,payment_methods_id:3, total_qty:1, total_price:10000,createdAt:ISODate()}
+            ])
+
+    j. Insert 3 produk di masing-masing transaksi
+
+        db.createCollection("transactions_details")
+
+        db.transactions_details.find().pretty()
+
+        db.transactions_details.insert([
+            {_id:1,transactions_id:1,product_id:6,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:2,transactions_id:2,product_id:6,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:3,transactions_id:3,product_id:6,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:4,transactions_id:4,product_id:6,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:5,transactions_id:5,product_id:6,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:6,transactions_id:6,product_id:6,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:7,transactions_id:7,product_id:6,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:8,transactions_id:8,product_id:6,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:9,transactions_id:9,product_id:6,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:10,transactions_id:10,product_id:6,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:11,transactions_id:11,product_id:6,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:12,transactions_id:12,product_id:6,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:13,transactions_id:13,product_id:6,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:14,transactions_id:14,product_id:6,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:15,transactions_id:15,product_id:6,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:16,transactions_id:1,product_id:5,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:17,transactions_id:2,product_id:5,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:18,transactions_id:3,product_id:5,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:19,transactions_id:4,product_id:5,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:20,transactions_id:5,product_id:5,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:21,transactions_id:6,product_id:5,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:22,transactions_id:7,product_id:5,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:23,transactions_id:8,product_id:5,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:24,transactions_id:9,product_id:5,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:25,transactions_id:10,product_id:5,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:26,transactions_id:11,product_id:5,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:27,transactions_id:12,product_id:5,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:28,transactions_id:13,product_id:5,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:29,transactions_id:14,product_id:5,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:30,transactions_id:15,product_id:5,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:31,transactions_id:1,product_id:3,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:32,transactions_id:2,product_id:3,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:33,transactions_id:3,product_id:3,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:34,transactions_id:4,product_id:3,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:35,transactions_id:5,product_id:3,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:36,transactions_id:6,product_id:3,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:37,transactions_id:7,product_id:3,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:38,transactions_id:8,product_id:3,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:39,transactions_id:9,product_id:3,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:40,transactions_id:10,product_id:3,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:41,transactions_id:11,product_id:3,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:42,transactions_id:12,product_id:3,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:43,transactions_id:13,product_id:3,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:44,transactions_id:14,product_id:3,status:1,qty:1,price:5000,createdAt:ISODate()},
+            {_id:45,transactions_id:15,product_id:3,status:1,qty:1,price:5000,createdAt:ISODate()}
+            ])
+
+2. Read 
+
+    a. Tampilkan nama user / pelanggan dengan gender laki-laki / M
+
+        db.user.find({gender:"M"}).pretty()
+
+    b. Tampilkan product dengan id = 3
+
+        db.product.find({_id:3}).pretty()
+
+    c. Hitung jumlah user / pelanggan dengan status gender Perempuan
+
+        db.user.find({gender:"F"}).count()
+
+    d. Tampilkan data pelanggan dengan urutan sesuai nama abjad
+
+        db.user.find().sort({name:1})
+
+    e. Tampilkan 5 data pada sial 2.b
+
+        db.product.find({_id:3}).limit(5).pretty()
+
+3. Update
+
+    a. Ubah data product id 1 dengan nama 'product dummy'
+
+        db.product.update({_id:1},{$set:{name:"product dummy"}})
+
+    b. Ubah qty=3 pada transactions detail dengan product id 1
+
+        db.transactions_details.update({_id:1},{$set:{qty:3}})
+
+4. Delete
+
+    a. Delete data pada tabel product dengan id 1
+
+        db.product.remove({_id:1})
+
+    b. Delete data pada tabel product dengan product type id 1
+
+        db.product.remove({product_type_id:1})

@@ -1,0 +1,50 @@
+<div class="col-md-4 jarak_kotak">
+    <div class="kotak">
+        <img src="../static/img/barang/sepatu.jpg">
+        <div class='detailss'>
+            <h3>Iphone X</h3>
+            <h4>Rp. 15.000.000</h4>
+            <a href="">Lihat Details</a>
+        </div>
+    </div>
+</div>
+<div class="col-md-4 jarak_kotak">
+    <div class="kotak">
+        <img src="../static/img/barang/motor.jpg">
+        <div class='detailss'>
+            <h3>Iphone X</h3>
+            <h4>Rp. 15.000.000</h4>
+            <a href="">Lihat Details</a>
+        </div>
+    </div>
+</div>
+<div class="col-md-4 jarak_kotak">
+    <div class="kotak">
+        <img src="../static/img/barang/iphone.jpg">
+        <div class='detailss'>
+            <h3>Iphone X</h3>
+            <h4>Rp. 15.000.000</h4>
+            <a href="">Lihat Details</a>
+        </div>
+    </div>
+</div>
+<div class="col-md-4 jarak_kotak">
+    <div class="kotak">
+        <img src="../static/img/barang/sepatu.jpg">
+        <div class='detailss'>
+            <h3>Iphone X</h3>
+            <h4>Rp. 15.000.000</h4>
+            <a href="">Lihat Details</a>
+        </div>
+    </div>
+</div>
+<div class="col-md-4 jarak_kotak">
+    <div class="kotak">
+        <img src="../static/img/barang/motor.jpg">
+        <div class='detailss'>
+            <h3>Iphone X</h3>
+            <h4>Rp. 15.000.000</h4>
+            <a href="">Lihat Details</a>
+        </div>
+    </div>
+</div>

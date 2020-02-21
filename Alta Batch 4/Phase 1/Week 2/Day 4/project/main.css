@@ -1,0 +1,238 @@
+/********** HEADER **********/
+@import url('https://fonts.googleapis.com/css?family=Muli:400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap');
+
+.option {
+    margin: 0;
+}
+
+.header-nav__list1 p{
+    font-size: 13px;
+    padding: 0 10px;
+    display: block;
+    color: #F47522;
+    font-family: 'Muli', sans-serif;
+    margin: 0;
+    font-weight: bold;
+}
+
+.header-nav__list1 li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header-nav__list1 li a:hover {
+    color: #F47522;
+    text-decoration: none;
+}
+
+.altalogo {
+    padding: 11px;
+}
+
+.header-nav__list1 li:hover {
+    color: #F47522;
+    text-decoration: none;
+}
+
+.header-nav__list1 li a {
+    font-size: 13px;
+    padding: 0 10px;
+    display: block;
+    color: #19345E;
+    font-family: 'Muli', sans-serif;
+    font-weight: bold;
+}
+
+p{
+    font-size: 13px;
+    padding: 0 10px;
+    display: block;
+    color: #F47522;
+    font-family: 'Muli', sans-serif;
+    margin: 0;
+    font-weight: bold;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    box-shadow: -webkit-box-shadow: 0px 3px 6px 2px rgba(193,195,199,1);
+    -moz-box-shadow: 0px 3px 6px 2px rgba(193,195,199,1);
+    box-shadow: 0px 3px 6px 2px rgba(193,195,199,1);;
+}
+
+/********** CONTACT **********/
+/*  Contact Page - Left Part */
+.contact-left{
+    background: #19345E;
+    border: 1px solid #707070;
+    padding: 0;
+}
+
+.contact-left .alterra-logo{
+    width: 48.5%;
+    position: absolute;
+    top: 41.9%;
+    left: 25.8%;
+    z-index: 3;
+}
+
+.contact-left .back-img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    opacity: 0.4;
+    z-index: 1;
+    object-fit: contain;
+}
+
+/*  Contact Page - Form Part */
+.contact-form{
+    font-family: Muli;
+    color: #19345E;
+}
+
+.contact-us{
+    font-size: 25px;
+    width: 100%;
+    padding: 4.17% 25%;
+}
+
+#contact-form{
+    width: 100%;
+}
+
+.input{
+    padding-left: 25%;
+    font-size: 23px;
+}
+
+#Full-Name, #email, #Phone-Number, #Role, #message{
+    width: 70%;
+}
+
+.submit-form{
+    width: 24%;
+    font-size: 19px;
+    color: white !important;
+    background-color: #F47522;
+    border-radius: 30px;
+}
+
+/********** EXPERIENCE **********/
+.experience-title{
+    position: relative;
+    top: 89px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #F4F7FC;
+    font-size: 2.3em;
+    font-weight: bold;
+    padding-left: 10%;
+    margin-bottom: 45px;
+}
+
+.experience-title .experience-tab{
+    font-family: Roboto;
+    color: #19345E;
+}
+
+/* Experience Page - Left Part */
+.experience-left{
+}
+
+.vertical-line{
+    float: right;
+    height: 570px;
+    margin-top: 50px;
+    margin-right: 60px;
+    border: 1px solid grey;
+    opacity: 0.1;
+}
+
+.bullet1{
+    background-color: #19345E;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    position: relative;
+    top : 145px;
+    left: 221px;
+}
+
+.bullet2{
+    background-color: #19345E;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    position: relative;
+    top : 315px;
+    left: 221px;
+}
+
+.bullet3{
+    background-color: #19345E;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    position: relative;
+    top : 500px;
+    left: 221px;
+}
+
+/* Experience Page - Right Part*/
+
+.experience-right{
+    padding-top: 100px;
+}
+
+.h4-article{
+    font-size: 17px;
+    font-family: Muli;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: #19345E;
+    font-weight: 700;
+}
+
+.date-article{
+    font-size: 15px;
+    color: #ACACAC;
+    font-family: Muli;
+    padding-bottom: 2px;
+}
+
+.line{
+    border: solid 0.1px grey;
+    opacity: 0.1;
+    margin-bottom: 20px;
+}
+
+.ul-article, .article-2{
+    font-size: 14px;
+    font-family: Roboto;
+    padding-bottom: 12px;  
+    color: #19345E;
+}
+
+.experience-article{
+    background: #FFFFFF;
+    border: 1px solid #E2E2E2;
+    margin-right: 10%;
+    border-radius: 10px;
+    color: #19345E;
+    margin-bottom: 45px;
+}
+
+.experience-article:hover{
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.1);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.1);
+    position: relative;
+    top: -5px;
+}

@@ -1,0 +1,5 @@
+use liveCodeMongo
+
+db.createCollection("product)
+
+{_id: 1, namaProduct: "Rak Piring", productTypeID: 1, supplier: 3, createdAt: {"$date":"2018-10-01T17:46:08.000Z"}, updatedAt: {"$date":"2018-10-02T17:46:08.000Z"}}

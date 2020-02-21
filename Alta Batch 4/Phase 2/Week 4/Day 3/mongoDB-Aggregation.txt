@@ -1,0 +1,199 @@
+
+1. Books
+
+    db.createCollections("Books")
+
+    db.Books.insert([
+        {_id:1,title:"Wawasan Pancasila", authorID:1, publisherID:1, price: 71200, stats: {page:324, wight:300}, publishedAt: new Date("2018-10-01"), category: ["social", "politics"]},
+        {_id:2,title:"Mata Air Keteladatan", authorID:1, publisherID:2, price: 106250, stats: {page:672, wight:650}, publishedAt: new Date("2017-09-01"), category: ["social", "politics"]},
+        {_id:3,title:"Revolusi pancasila", authorID:1, publisherID:1, price: 54400, stats: {page: 220, wight:500}, publishedAt: new Date("2015-05-01"), category: ["social", "politics"]},
+        {_id:4,title:"Self Driving", authorID:2, publisherID:1, price: 58650, stats: {page: 286, wight:300}, publishedAt: new Date("2018-05-01"), category: ["self-development"]},
+        {_id:5,title:"Self Disruption", authorID:2, publisherID:2, price: 83300, stats: {page: 400, wight:800}, publishedAt: new Date("2018-05-01"), category: ["self-development"]}
+        ])
+
+    db.Books.find().pretty()
+
+2. Authors
+
+    db.createCollection("Authors")
+
+    db.Authors.insert([
+        {_id:1,firstName:"Yudi", lastName:"latif"},
+        {_id:2,firstName:"Rhenald", lastName:"Kasali"}
+        ])
+
+    db.Authors.find().pretty()
+
+3. Publishers
+
+    db.createCollection("Publishers")
+
+    db.Publishers.insert([
+        {_id:1,publisherName:"Expose"},
+        {_id:2,publisherName:"Mizan"}
+        ])
+
+    db.Publishers.find().pretty()
+
+
+1. Gabungkan (menampilkan) data buku dari author id 1  dan author id 2
+
+    db.Books.aggregate([
+        { $match: { $or : [{authorID: 1}, {authorID: 2}] }}
+    ])
+
+2. Tampilkan daftar buku dan harga author id 1
+
+    db.Books.aggregate([
+        { $match: {authorID: 1} },
+        { $project: {title:1,price:1} }
+    ])
+
+3. Tampilkan total jumlah halaman buku author id 2
+
+    db.Books.aggregate([
+        { $match: {authorID: 2} },
+        { $group: {
+            "_id":2,
+            "totalPages": {$sum : "$stats.page"} 
+        }}
+    ])
+
+4. Tampilkan semua field books dan authors terkait.
+
+    ======= Output 1 =======
+
+    db.Authors.aggregate([
+        { $lookup : {
+            from : "Books",
+            localField: "_id",
+            foreignField : "authorID",
+            as : "books"
+        }}
+    ])
+
+    ======= Output 2 =======
+
+    db.Books.aggregate([
+        { $lookup : {
+            from : "Authors",
+            localField: "authorID",
+            foreignField : "_id",
+            as : "authors"
+        }}
+    ])
+
+5. Tampilkan semua field books , author, dan publisher terkait
+
+    db.Books.aggregate([
+        { $lookup : {
+            from : "Authors",
+            localField: "authorID",
+            foreignField : "_id",
+            as : "authors"
+        }},
+        { $lookup : {
+            from : "Publishers",
+            localField: "publisherID",
+            foreignField : "_id",
+            as : "publisher"
+        }},
+    ])
+
+6. Tampilkan summary data authors, books, dan publishers sesuai dengan Output
+
+    db.Authors.aggregate([
+        { $lookup : {
+            from : "Books",
+            localField: "_id",
+            foreignField : "authorID",
+            as : "books"
+        }},
+        { $unwind : "$books"},
+        { $lookup : {
+            from : "Publishers",
+            localField: "books.publisherID",
+            foreignField : "_id",
+            as : "publisher"
+        }},
+        { $unwind : "$publisher"},
+        {$project: {
+            firstName:{$concat:[
+                "$firstName"," ","$lastName"
+            ]},
+            title:{$concat:[
+                "$books.title","(","$publisher.publisherName",")"
+            ]}
+        }},
+        { $group: {
+            "_id": "$firstName",
+            "number_of_books": {$sum : 1},
+            "list_of_books": {$push: {title: "$title"}}
+        }}
+    ])
+
+7. Digital_outlet ingin memberikan diskon untuk setiap buku, diskon di tentukan melihat harga buku tersebut dengan pembagian seperti ingin
+
+    db.Books.aggregate([
+        { $project: {
+            _id:1,
+            title:1,
+            price:1,
+            promo:{
+                $cond: { if: {$gt: ["$price",90000]}, then: "3%",
+                    else: { $cond: { if: {$gt: ["$price",60000]}, then: "2%",
+                        else: "1%"
+                    }} 
+                }
+            }
+        }}
+    ])
+
+8. Tampilkan semua nama buku, harga, nama author dan nama publisher, urutkan dari harga termahal ke termurah
+
+    db.Books.aggregate([
+        { $lookup : {
+            from : "Authors",
+            localField: "authorID",
+            foreignField : "_id",
+            as : "authors"
+        }},
+        { $lookup : {
+            from : "Publishers",
+            localField: "publisherID",
+            foreignField : "_id",
+            as : "publisher"
+        }},
+        { $unwind : "$authors"},
+        { $unwind : "$publisher"},
+        {$project: {
+            _id:0,
+            title:1,
+            price:1, 
+            author:{$concat:[
+                "$authors.firstName"," ","$authors.lastName"
+            ]},
+            publisher: "$publisher.publisherName"
+        }},
+        {$sort: {price:-1}}
+    ])
+
+9. tampilkan data nama buku, harga, dan publisher, kemudian tampilkan hanya data ke 3 dan 4
+
+    db.Books.aggregate([
+        { $lookup : {
+            from : "Publishers",
+            localField: "publisherID",
+            foreignField : "_id",
+            as : "publisher"
+        }},
+        { $unwind : "$publisher"},
+        {$project: {
+            _id:1,
+            title:1,
+            price:1,
+            publisher: "$publisher.publisherName"
+        }},
+        {$skip:2},
+        {$limit:2}
+    ])

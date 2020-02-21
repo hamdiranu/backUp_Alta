@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap');
+@font-face {
+    src: url('../font/sf/SFCompactDisplay-Semibold.ttf');
+    font-family: "SFCompactDisplay";
+}
+
+.header {
+    background-color: #232F3E;
+    display: table;
+}
+
+.burger img{
+    height: 50px;
+    width: 45px;
+    padding: 15px 10px;
+    border: 1px solid #666666;
+    border-radius: 10%;
+}
+
+.burger {
+    padding-top: 10px;
+}
+
+.amazon_logo img {
+    height: 40px;
+    width: 130px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.amazon_logo {
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.atas {
+    display: flex;
+    padding-left: 10px;
+}
+
+.cart img{
+    height: 45px;
+    width: 80px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.atas p {
+    color: white;
+    margin-bottom: 0px;
+}
+
+.nav_search {
+    padding: 10px 10px 10px 50px;
+}
+
+.EN {
+    padding: 10px 10px 10px 30px;
+
+}
+
+.dua_halo {
+    padding: 10px 10px;
+}
+
+.hello p{
+    font-size: 14px;
+}
+
+.acc p{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.Orders {
+    padding: 10px 10px;
+}
+
+.Orders a{
+    color: white;
+}
+
+.deliver {
+    padding: 5px 5px;
+}
+
+.days_deal {
+    text-align: center;
+    
+}
+
+.days_deal a{
+    font-weight: 1000;
+    color: white;
+    font-size: 25px;
+    padding-left: 50px;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.days_deal a:hover{
+    text-decoration: none;
+}
+
+.nav_search input[type=text] {
+    float: right;
+    padding-right: 410px;
+    border: none;
+    margin-top: 0px;
+    margin-right: 16px;
+    font-size: 17px;
+    border: white;
+    margin-right: 0px;
+  }
+.nav_search button {
+    color: white;
+    background-color: #FEBD69;
+    width: 45px;
+}
+
+.nav_search img{
+    height: 25px;
+    width: 25px;
+}
+
+.bawah_search1{
+    padding-left: 10px;
+    margin-bottom: 0px;
+    padding-top: 5px;
+}
+
+.bawah_search1 li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.bawah_search1 li a{
+    text-decoration: none;
+    color: #C1CCCC;
+    padding-right: 20px;
+    padding-top: 5px;
+}
+
+.bawah_search1 li a:hover {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.sign_in {
+    display: block ruby;
+}
+
+.sign_in img{
+    height: 80px;
+    width: 80px;
+    border: none;
+}
+
+.sign_in {
+    padding-bottom: 30px;
+}
+
+.sejajar_search {
+    padding-left: 0px;
+}
+
+/* ================================================================================ */
+
+
+
+.navbar {
+    width: 400px;
+    height: 100%;
+    background-color: #262626;
+    position: fixed;
+    top: 0;
+    left: -400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 20% 20% 0;
+    transition: left 0.8s cubic-bezier(1,0,0,1);
+    z-index: 2;
+}
+
+.change {
+    left: 0;
+}
+
+.hamburger-menu {
+    width: 35px;
+    height: 30px;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 10%;
+}
+
+.line {
+    width: 80%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.8s;
+}
+
+.change .line-1{
+    transform: rotateZ(-405deg) translate(-8px, 6px);
+}
+
+.change .line-2{
+    opacity: 0;
+}
+
+.change .line-3{
+    transform: rotateZ(405deg) translate(-8px, -6px);
+}
+
+.nav-list {
+    text-align: left;
+    padding-left: 0px;
+}
+
+.nav-item {
+    list-style: none;
+    margin: 25px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 20px;
+    color: #eee;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    padding: 3px 0;
+}
+
+.nav-link::before,
+.nav-link::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: chocolate;
+    position: absolute;
+    left: 0;
+    transform: scaleX(0);
+    transition: 0.5s;
+}
+
+.nav-link::after {
+    bottom: 0;
+    transform-origin: right;
+}
+
+.nav-link::before {
+    top: 0;
+    transform-origin: left;
+}
+
+.nav-link:hover::before,
+.nav-link:hover::after {
+    transform: scaleX(1);
+    color: coral;
+}
+
+.nav-list p{
+    font-size: 22px;
+    padding-bottom: 20px;
+}

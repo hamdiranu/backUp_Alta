@@ -1,0 +1,35 @@
+1. Export
+
+    use test
+    db.createUser(
+    {
+        user: "myTester",
+        pwd: "xyz123",
+        roles: [ { role: "readWrite", db: "test" },
+                { role: "read", db: "reporting" } ]
+    }
+    )
+
+    mongoexport -u myTester --db digital_outlet --collection product_type --out product_type.json
+
+    ===================================================================
+
+    use digital_outlet
+    db.createUser(
+    {
+        user: "myTester",
+        pwd: "xyz123",
+        roles: [ { role: "readWrite", db: "digital_outlet" },
+                { role: "read", db: "reporting" } ]
+    }
+    )
+
+    mongoexport -u myTester --db digital_outlet --collection product_type --out product_type.json
+
+2. Import
+
+    mongoimport -u myTester -c mentees -d test --mode upsert --file mentees.json
+
+3. Dump
+
+    mongodump -u myTester --db test --collection mentees

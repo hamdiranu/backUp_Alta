@@ -1,0 +1,3 @@
+{"_id":1.0,"name":"pulsa","createdAt":{"$date":"2020-01-14T07:41:08.059Z"}}
+{"_id":2.0,"name":"paket data","createdAt":{"$date":"2020-01-14T07:41:08.059Z"}}
+{"_id":3.0,"name":"kartu","createdAt":{"$date":"2020-01-14T07:41:08.059Z"}}

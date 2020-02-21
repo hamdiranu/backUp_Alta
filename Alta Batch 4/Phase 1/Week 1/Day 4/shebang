@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+mkdir new_folder
+cd new_folder
+ls -l

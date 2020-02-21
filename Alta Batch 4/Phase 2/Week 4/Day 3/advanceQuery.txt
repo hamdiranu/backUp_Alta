@@ -1,0 +1,36 @@
+db.mentees.insert([
+    {firstName:"Abdullah", lastName:"Habib", gender: "male",age: 19,hobbies: ["eat", "sleep"],city:"surabaya" },
+      {firstName:"Afif", lastName:"Hadyan", gender: "male",age: 20,hobbies: ["read", "sleep"],city:"semarang"},
+      {firstName:"Ahmad", lastName:"Yusqie Mafaza", gender: "male",age: 21,hobbies: ["eat", "watch"],city:"surabaya" },
+      {firstName : "Danny",lastName : "Yusqie Mafaza","gender" : "female",age : 20,hobbies : ["read","watch"],city:"jakarta"}
+])
+
+1. Comparison
+
+    ne, gt, gte, lt, lte
+
+    a. not equal
+    
+        db.mentees.find({gender:{$ne:"male"}}).pretty()
+
+    b. greater than
+
+        db.mentees.find({age:{$gt:20}})
+
+    c. greater than & less than
+
+        db.mentees.find({age:{$gte:18, $lt:20}})
+
+2. Logical
+
+    a. or - and
+
+        db.mentees.find({ $or : [{gender: "female"}, {age:19}] })
+        db.mentees.find({ $and : [{gender: "female"}, {age:19}] })
+
+    b. in - not in
+
+        db.mentees.find({ hobbies : { $in ["eat","sleep"]}})
+        db.mentees.find({ hobbies : { $nin ["eat","sleep"]}})
+
+        db.mentees.find({ hobbies : { $not : {["eat","sleep"]} }})
